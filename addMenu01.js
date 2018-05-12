@@ -66,14 +66,3 @@ browser.menus.onClicked.addListener((info, tab) => {
       break;
   }
 });
-
-// Notification
-function noticeDelete() {
-  browser.notifications.clear('noticeInstall');
-}
-browser.notifications.create('noticeInstall', {
-  'type': 'basic',
-  'title': '"Quick translate from context menu" installed.',
-  'message': 'Please set on the Firefox add-ons page.'
-});
-setTimeout(noticeDelete, 5000);
