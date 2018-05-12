@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Quick translate from context menu",
-  "version": "0.1",
+  "version": "0.1.1",
   "description": "Add a link about translate to context menu.",
   "permissions": ["menus", "notifications", "storage"],
   "applications": {
