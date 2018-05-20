@@ -27,10 +27,7 @@ browser.menus.onClicked.addListener((info, tab) => {
           }
           switch (openMethod) {
             case 'window':
-              const createData01 = {
-                height: 720, width: 800,
-                url: URL01
-              };
+              const createData01 = {height: 720, width: 800, url: URL01};
               browser.windows.create(createData01);
               break;
             case 'tab':
@@ -38,30 +35,31 @@ browser.menus.onClicked.addListener((info, tab) => {
               break;
           }
         }
-        let languageValue01 = 'en';
-        if (object.languageValue) {
-          languageValue01 = object.languageValue;
+        let languageCode01 = 'en';
+        if (object.languageCode) {
+          languageCode01 = object.languageCode;
         }
-        const URL01 = 'https://translate.google.com/#auto/'+languageValue01+'/'+info.selectionText;
+        const URL01 = 'https://translate.google.com/#auto/'+languageCode01+'/'+info.selectionText
+                      .replace(/\%/g, '%25').replace(/\//g, '%2F');
         const getOpenMethod = browser.storage.local.get('openMethod')
           .then(winOrTab01);
       }
-      const getLanguageValue01 = browser.storage.local.get('languageValue')
+      const getLanguageCode01 = browser.storage.local.get('languageCode')
         .then(Language01);
       break;
 
     case ID02:
       function Language02(object) {
-        let languageValue02 = 'en';
-        if (object.languageValue) {
-          languageValue02 = object.languageValue;
+        let languageCode02 = 'en';
+        if (object.languageCode) {
+          languageCode02 = object.languageCode;
         }
         const URL02 = 'https://translate.google.com/translate?hl='+
-                      languageValue02+'&sl=auto&tl='+languageValue02+'&u='+info.pageUrl;
+                      languageCode02+'&sl=auto&tl='+languageCode02+'&u='+info.pageUrl;
         const createData02 = {url: URL02};
         browser.tabs.create(createData02);
       }
-      const getLanguageValue02 = browser.storage.local.get('languageValue')
+      const getLanguageCode02 = browser.storage.local.get('languageCode')
         .then(Language02);
       break;
   }
