@@ -1,6 +1,6 @@
 
 function init(object) {
-  const initOM = document.querySelector('input[value="'+object.openMethod+'"]');
+  const initOM = document.querySelector('input[value="'+object.textOpenMethod+'"]');
   initOM.checked = true;
   const initLC = document.querySelector('option[value="'+object.languageCode+'"]');
   initLC.selected = true;
@@ -11,13 +11,13 @@ function clearNotice(ID) {
 }
 
 function saveHTO() {
-  const valueOM = document.querySelector('input[name="howToOpen"]:checked').value;
+  const valueTextOM = document.querySelector('input[name="howToOpen"]:checked').value;
 
-  browser.storage.local.set({openMethod: valueOM});
+  browser.storage.local.set({textOpenMethod: valueTextOM});
   browser.notifications.create('noticeOM', {
     'type'   : 'basic',
     'title'  : '"Quick translate from context menu".',
-    'message': 'Setting is changed. Open by new "'+valueOM+'".'
+    'message': 'Setting is changed. Open by new "'+valueTextOM+'".'
   });
   setTimeout(function(){ clearNotice('noticeOM') }, 4000);
 }
@@ -34,7 +34,7 @@ function saveLOTTD() {
   setTimeout(function(){ clearNotice('noticeLC') }, 4000);
 }
 
-const initsetting = browser.storage.local.get(['openMethod', 'languageCode'])
+const initSetting = browser.storage.local.get(['textOpenMethod', 'languageCode'])
   .then(init);
 
 document.querySelector('#HTO').addEventListener('input', saveHTO);
