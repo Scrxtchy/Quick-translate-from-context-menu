@@ -1,14 +1,19 @@
 
-.fontsize132 {
-  font-size: 132%;
-}
-
-.BG-dddddd {
+.BG-dddddd
+{
   color: #000000;
   background-color: #dddddd;
 }
 
-.descriptionText {
+.descriptionText
+{
   font-size: 92%;
   color: #696969;
+}
+
+.hr1px1em
+{
+  border: 1px #dddddd solid;
+  margin-left: 1em;
+  margin-right: 1em;
 }
