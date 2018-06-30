@@ -1,27 +1,29 @@
 {
-  "manifest_version": 2,
-  "name": "Quick translate from context menu",
-  "version": "1.0.2",
-  "description": "Add a link about translate to context menu.",
-  "permissions": ["menus", "notifications", "storage"],
-  "applications": {
-    "gecko": {
+  "applications":
+  {
+    "gecko":
+    {
       "id": "da486ed70ee0a721c84734f9aa89c74d964dbaad@temporary-addon",
       "strict_min_version": "59.0a1"
-
     }
   },
-
-  "icons": {
+  "background":
+  {
+    "scripts": ["addMenu.js"]
+  },
+  "default_locale": "en",
+  "description": "__MSG_extensionDescription__",
+  "icons":
+  {
     "48": "icons/ic_translate_black_48dp.png",
     "96": "icons/ic_translate_black_96dp.png"
   },
-
-  "background": {
-    "scripts": ["addMenu01.js"]
+  "manifest_version": 2,
+  "name": "Quick translate from context menu",
+  "options_ui":
+  {
+    "page": "optionpage/option.html"
   },
-
-  "options_ui": {
-    "page": "optionPage/options.html"
-  }
+  "permissions": ["menus", "notifications", "storage"],
+  "version": "1.1.0"
 }
