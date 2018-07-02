@@ -52,5 +52,20 @@
   "optionpageOpenByNewWindow":
   {
     "message": "新しいウィンドウで開く"
+  },
+
+  "optionpageSizeOfNewWindow":
+  {
+    "message": "新しいウィンドウのサイズ"
+  },
+
+  "optionpageSpecifySize":
+  {
+    "message": "ウィンドウのサイズを指定"
+  },
+
+  "optionpageWhenSetWH":
+  {
+    "message": "width:800 height:720 ...と設定した時、 新しいウィンドウのサイズは800x720となります。 この設定はチェックを入れているときのみ反映されます。"
   }
 }

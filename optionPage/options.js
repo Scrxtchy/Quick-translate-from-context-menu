@@ -7,6 +7,10 @@ function init(obj) {
   initOM_text.checked    = true;
   initOM_website.checked = true;
   initLC.selected        = true;
+
+  document.getElementById('HTO_specifySize').checked = obj.specifySize;
+  document.getElementById('SOW_width').value         = obj.sizeWidth;
+  document.getElementById('SOW_height').value        = obj.sizeHeight;
 }
 
 function saveOM_text() {
@@ -19,17 +23,29 @@ function saveOM_website() {
   browser.storage.local.set({ openMethod_website: valueOM_website });
 }
 
+function saveOM_specifySize() {
+  const valueOM_specifySize = document.getElementById('HTO_specifySize').checked;
+  const valueOM_sizeWidth   = Number( document.getElementById('SOW_width').value );
+  const valueOM_sizeHeight  = Number( document.getElementById('SOW_height').value );
+  browser.storage.local.set({
+    specifySize: valueOM_specifySize, sizeWidth: valueOM_sizeWidth, sizeHeight: valueOM_sizeHeight
+  });
+}
+
 function saveLC() {
   const valueLC = document.querySelector('#languageCode').value;
   browser.storage.local.set({ languageCode: valueLC });
 }
 
-const initSetting = browser.storage.local.get(['openMethod_text', 'openMethod_website', 'languageCode'])
+const initSetting = browser.storage.local.get([
+  'openMethod_text', 'openMethod_website', 'specifySize', 'sizeWidth', 'sizeHeight', 'languageCode'
+])
   .then(init);
 
 // Update processing
 document.getElementById('formOM_text').addEventListener('input', saveOM_text);
 document.getElementById('formOM_website').addEventListener('input', saveOM_website);
+document.getElementById('formOM_specifySize').addEventListener('input', saveOM_specifySize);
 document.getElementById('formLC').addEventListener('input', saveLC);
 
 // For multilingual
@@ -40,6 +56,9 @@ document.getElementById('labelOpenByNewTab_A').textContent    = browser.i18n.get
 document.getElementById('labelOpenByNewWindow_A').textContent = browser.i18n.getMessage('optionpageOpenByNewWindow');
 document.getElementById('labelOpenByNewTab_B').textContent    = browser.i18n.getMessage('optionpageOpenByNewTab');
 document.getElementById('labelOpenByNewWindow_B').textContent = browser.i18n.getMessage('optionpageOpenByNewWindow');
+document.getElementById('strongSizeOfNewWindow').textContent  = browser.i18n.getMessage('optionpageSizeOfNewWindow');
+document.getElementById('labelSpecifySize').textContent       = browser.i18n.getMessage('optionpageSpecifySize');
+document.getElementById('pWhenSetWH').textContent             = browser.i18n.getMessage('optionpageWhenSetWH');
 
-document.getElementById('divLanguageOf').textContent = browser.i18n.getMessage('optionpageLanguageOf');
+document.getElementById('divLanguageOf').textContent   = browser.i18n.getMessage('optionpageLanguageOf');
 document.getElementById('pIfSetToEn').textContent      = browser.i18n.getMessage('optionpageIfSetEn');

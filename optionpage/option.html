@@ -26,13 +26,22 @@
               <label id="labelOpenByNewWindow_B" for="HTO_website1">Open by new window</label><br>
           </form>
           <br>
+          <strong id="strongSizeOfNewWindow" style="float:left;">Size of new window</strong><hr class="hr1px1em">
+          <form id="formOM_specifySize" style="clear:left;">
+            <input type="checkbox" id="HTO_specifySize" name="howToOpenSpecifySize">
+              <label id="labelSpecifySize" for="HTO_specifySize">Specify the size of window</label><br>
+            width:<input type="number" id="SOW_width" placeholder="px" min="0">,
+            height:<input type="number" id="SOW_height" placeholder="px" min="0">
+          </form>
+          <p id="pWhenSetWH" class="descriptionText">When set width:800 and height:720, a size of new window is 800x720. This setting is reflected only when checked.</p>
+          <br>
         </div>
       <br>
       <h2><div id="divLanguageOf" class="BG-dddddd">Language of the translated destination</div></h2>
         <div style="font-size: 132%;">
           <form id="formLC">Language code:
             <select id="languageCode">
-              <option value="00" >-select-</option>
+              <option value="00">-select-</option>
               <option value="af">af - Afrikaans</option>
               <option value="am">am - አማርኛ</option>
               <option value="ar">ar - العربية</option>

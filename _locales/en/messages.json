@@ -52,5 +52,20 @@
   "optionpageOpenByNewWindow":
   {
     "message": "Open by new window"
+  },
+
+  "optionpageSizeOfNewWindow":
+  {
+    "message": "Size of new window"
+  },
+
+  "optionpageSpecifySize":
+  {
+    "message": "Specify the size of window"
+  },
+
+  "optionpageWhenSetWH":
+  {
+    "message": "When set width:800 and height:720, a size of new window is 800x720. This setting is reflected only when checked."
   }
 }

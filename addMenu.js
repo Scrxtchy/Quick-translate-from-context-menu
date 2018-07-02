@@ -16,8 +16,12 @@ const menu02 = browser.menus.create({
 });
 
 // behavior
-function openByNewWindow(URL) {
-  browser.windows.create({ url: URL });
+function openByNewWindow(URL, specifySize, sizeWidth, sizeHeight) {
+  if (specifySize) {
+    browser.windows.create({ url: URL, width: sizeWidth, height: sizeHeight });
+  } else {
+    browser.windows.create({ url: URL });
+  }
 }
 
 function openByNewTab(URL) {
@@ -35,6 +39,7 @@ function notificationNotSet() {
 
 browser.menus.onClicked.addListener((info, tab) => {
   function menuBehavior(obj) {
+    console.log(obj);
     switch (info.menuItemId) {
       case ID01:
         if ( (obj.openMethod_text == null) || (obj.languageCode == null) ) {
@@ -44,7 +49,7 @@ browser.menus.onClicked.addListener((info, tab) => {
                      .replace(/\%/g, '%25').replace(/\//g, '%2F');
         switch (obj.openMethod_text) {
           case 'window':
-            openByNewWindow(URL01);
+            openByNewWindow(URL01, obj.specifySize, obj.sizeWidth, obj.sizeHeight);
             break;
           case 'tab':
             openByNewTab(URL01);
@@ -59,7 +64,7 @@ browser.menus.onClicked.addListener((info, tab) => {
                      +obj.languageCode+'&u='+info.pageUrl;
         switch (obj.openMethod_website) {
           case 'window':
-            openByNewWindow(URL02);
+            openByNewWindow(URL02, obj.specifySize, obj.sizeWidth, obj.sizeHeight);
             break;
           case 'tab':
             openByNewTab(URL02);
@@ -69,6 +74,8 @@ browser.menus.onClicked.addListener((info, tab) => {
     }
   }
 
-  const getMenuInfo = browser.storage.local.get(['openMethod_text', 'openMethod_website', 'languageCode'])
+  const getMenuInfo = browser.storage.local.get([
+    'openMethod_text', 'openMethod_website', 'specifySize', 'sizeWidth', 'sizeHeight', 'languageCode'
+  ])
     .then(menuBehavior);
 });
