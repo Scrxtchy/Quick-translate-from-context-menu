@@ -54,9 +54,14 @@
     "message": "新しいウィンドウで開く"
   },
 
+  "optionpageOpenByNewPopup":
+  {
+    "message": "新しいポップアップで開く"
+  },
+
   "optionpageSizeOfNewWindow":
   {
-    "message": "新しいウィンドウのサイズ"
+    "message": "新しいウィンドウのサイズ/ポップアップ"
   },
 
   "optionpageSpecifySize":

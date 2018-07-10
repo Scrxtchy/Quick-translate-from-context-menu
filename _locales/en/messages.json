@@ -54,6 +54,11 @@
     "message": "Open by new window"
   },
 
+  "optionpageOpenByNewPopup":
+  {
+    "message": "Open by new popup"
+  },
+
   "optionpageSizeOfNewWindow":
   {
     "message": "Size of new window"
@@ -61,7 +66,7 @@
 
   "optionpageSpecifySize":
   {
-    "message": "Specify the size of window"
+    "message": "Specify the size of window/popup"
   },
 
   "optionpageWhenSetWH":

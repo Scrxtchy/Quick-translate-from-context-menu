@@ -16,9 +16,9 @@ const menu02 = browser.menus.create({
 });
 
 // behavior
-function openByNewWindow(URL, specifySize, sizeWidth, sizeHeight) {
+function openByNewWindow(URL, specifySize, sizeWidth, sizeHeight, style) {
   if (specifySize) {
-    browser.windows.create({ url: URL, width: sizeWidth, height: sizeHeight });
+    browser.windows.create({ url: URL, type: style == 'window' ? 'normal' : 'popup' , width: sizeWidth, height: sizeHeight });
   } else {
     browser.windows.create({ url: URL });
   }
@@ -49,7 +49,8 @@ browser.menus.onClicked.addListener((info, tab) => {
                      .replace(/\%/g, '%25').replace(/\//g, '%2F');
         switch (obj.openMethod_text) {
           case 'window':
-            openByNewWindow(URL01, obj.specifySize, obj.sizeWidth, obj.sizeHeight);
+          case 'popup':
+            openByNewWindow(URL01, obj.specifySize, obj.sizeWidth, obj.sizeHeight, obj.openMethod_text);
             break;
           case 'tab':
             openByNewTab(URL01);
@@ -64,7 +65,8 @@ browser.menus.onClicked.addListener((info, tab) => {
                      +obj.languageCode+'&u='+info.pageUrl;
         switch (obj.openMethod_website) {
           case 'window':
-            openByNewWindow(URL02, obj.specifySize, obj.sizeWidth, obj.sizeHeight);
+          case 'popup':
+            openByNewWindow(URL02, obj.specifySize, obj.sizeWidth, obj.sizeHeight, obj.openMethod_website);
             break;
           case 'tab':
             openByNewTab(URL02);
